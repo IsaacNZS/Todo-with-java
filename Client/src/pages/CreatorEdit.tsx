@@ -27,7 +27,6 @@ const CreatorEdit = () => {
   const router = useNavigate();
   const [searchParams] = useSearchParams();
   const [todo, setTodo] = useState<Todo | null>(null);
-  const [loading, setLoading] = useState(true);
   const status = searchParams.get("status");
   const id = searchParams.get("id");
 
@@ -40,8 +39,6 @@ const CreatorEdit = () => {
     if (!id) return;
 
     try {
-      setLoading(true);
-
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/${id}`);
 
       if (!res.ok) {
@@ -53,8 +50,6 @@ const CreatorEdit = () => {
       setPriority(data.priority.toLowerCase());
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
     }
   };
 
