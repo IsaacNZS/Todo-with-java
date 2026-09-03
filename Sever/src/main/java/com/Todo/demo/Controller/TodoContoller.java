@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todos")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://tourmaline-narwhal-362fc9.netlify.app")
 public class TodoContoller {
 
     private final Todoservice todoService;
